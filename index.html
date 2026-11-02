@@ -1,103 +1,230 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Belajar Mengenal Warna</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #fff8e8;
-      padding: 20px;
-    }
-
-    h1 { color: #ff7b35; }
-
-    .warna {
-      display: inline-block;
-      width: 130px;
-      margin: 10px;
-      padding: 15px;
-      border-radius: 15px;
-      background: white;
-      box-shadow: 0 3px 8px #ccc;
-    }
-
-    .kotak {
-      height: 90px;
-      border-radius: 12px;
-    }
-
-    button {
-      background: #ff9b42;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      cursor: pointer;
-      margin: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petualangan Mengenal Warna</title>
+<style>
+:root{--ungu:#7554b5;--jingga:#ff9b42;--pink:#ff83a5;--gelap:#39334d;--latar:#fff9ef}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--gelap);background:var(--latar)}
+header{background:linear-gradient(120deg,#ffb36b,#ff83a5,#a78bfa);color:white;text-align:center;padding:30px 15px}
+header h1{font-size:clamp(27px,5vw,43px);margin:10px 0}
+header p{font-size:17px}
+nav{background:white;padding:13px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;box-shadow:0 3px 10px #00000012}
+nav a{text-decoration:none;color:var(--ungu);font-weight:bold;padding:9px 13px;border-radius:20px}
+nav a:hover{background:#eee6ff}
+main{max-width:1100px;margin:auto;padding:20px}
+section{padding:28px 0;scroll-margin-top:75px}
+.judul{text-align:center;color:var(--ungu);font-size:28px;margin-bottom:10px}
+.deskripsi{text-align:center;color:#716b7d;margin-bottom:25px}
+.sambutan{background:white;border-radius:25px;text-align:center;padding:30px 20px;box-shadow:0 5px 20px #0000000b}
+.sambutan .pelangi{font-size:60px}
+.tombol{border:none;border-radius:25px;padding:12px 20px;background:var(--jingga);color:white;font-weight:bold;font-size:15px;cursor:pointer;margin:5px;transition:.2s}
+.tombol:hover{filter:brightness(.95);transform:translateY(-2px)}
+.tombol-ungu{background:var(--ungu)}.tombol-pink{background:var(--pink)}
+.grid-warna{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.kartu{background:white;border-radius:18px;padding:15px;text-align:center;box-shadow:0 4px 12px #0000000b;transition:.2s}
+.kartu:hover{transform:translateY(-5px)}
+.contoh-warna{width:100%;height:105px;border-radius:15px;border:2px solid #eee}
+.kartu h3{margin:12px 0 5px}.kartu p{color:#777;font-size:13px;min-height:32px}
+.kartu button{border:none;border-radius:20px;background:#eee6ff;color:var(--ungu);padding:9px 13px;cursor:pointer;font-weight:bold}
+.panel{background:white;padding:25px;border-radius:22px;box-shadow:0 4px 15px #0000000b;text-align:center}
+.youtube-container{position:relative;width:100%;max-width:750px;margin:20px auto;aspect-ratio:16/9;overflow:hidden;border-radius:18px;box-shadow:0 5px 15px #00000020;background:#211b2c}
+.youtube-container iframe{width:100%;height:100%;border:none;position:absolute;inset:0}
+.soal{font-size:23px;font-weight:bold;margin:20px 0}
+.pilihan{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.pilihan button{border:2px solid #eee;background:white;border-radius:15px;padding:13px 20px;cursor:pointer;font-size:16px;min-width:110px}
+.pilihan button:hover{border-color:var(--ungu);background:#f4efff}
+#umpanBalik,#hasilKuis{font-weight:bold;margin-top:18px;min-height:28px}
+.benda{font-size:58px;margin:15px}
+footer{background:var(--ungu);color:white;text-align:center;padding:25px;margin-top:35px}
+@media(max-width:600px){main{padding:13px}nav{gap:3px}nav a{font-size:12px;padding:8px}.judul{font-size:23px}.panel{padding:18px 12px}}
+</style>
 </head>
 <body>
+<header>
+<div style="font-size:55px">🌈 🎨 🌻</div>
+<h1>Petualangan Mengenal Warna</h1>
+<p>Belajar warna menjadi menyenangkan!</p>
+<p>Untuk anak-anak hebat usia 5–6 tahun</p>
+</header>
+<nav aria-label="Navigasi utama">
+<a href="#beranda">Beranda</a><a href="#materi">Belajar</a><a href="#video">Video</a><a href="#permainan">Permainan</a><a href="#kuis">Kuis</a>
+</nav>
+<main>
+<section id="beranda">
+<div class="sambutan">
+<div class="pelangi">🌈</div><h2>Halo, Teman-Teman!</h2>
+<p>Selamat datang di dunia warna. Yuk, kita mengenal berbagai warna, mendengarkan suara, bermain, dan menjawab kuis!</p>
+<a href="#materi"><button class="tombol">Mulai Belajar 🚀</button></a>
+</div>
+</section>
+<section id="materi">
+<h2 class="judul">🎨 Ayo Mengenal Warna!</h2>
+<p class="deskripsi">Tekan tombol dengarkan untuk mengetahui nama setiap warna.</p>
+<div class="grid-warna" id="daftarWarna"></div>
+</section>
+<section id="video">
+<h2 class="judul">🎬 Video Pembelajaran</h2>
+<p class="deskripsi">Yuk, belajar mengenal warna melalui video! Perhatikan videonya dengan baik, ya.</p>
+<div class="panel">
+<h3>🌈 Ayo Belajar Mengenal Warna!</h3>
+<div class="youtube-container">
+<iframe src="https://www.youtube.com/embed/gzRtLZRVV0Q" title="Video Pembelajaran Mengenal Warna" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<p>Ayo bernyanyi, belajar, dan mengenal berbagai warna bersama!</p>
+<p><a href="https://www.youtube.com/watch?v=gzRtLZRVV0Q" target="_blank" rel="noopener noreferrer">Buka video langsung di YouTube</a></p>
+</div>
+</section>
+<section id="permainan">
+<h2 class="judul">🧩 Permainan Mencocokkan Warna</h2>
+<p class="deskripsi">Pilih warna yang sesuai dengan benda berikut.</p>
+<div class="panel">
+<div class="benda" id="gambarBenda">🍃</div>
+<div class="soal" id="soalPermainan">Apa warna daun?</div>
+<div class="pilihan" id="pilihanPermainan"></div>
+<p id="umpanBalik" aria-live="polite"></p>
+<button class="tombol tombol-ungu" onclick="soalPermainanBaru()">Soal Berikutnya</button>
+</div>
+</section>
+<section id="kuis">
+<h2 class="judul">⭐ Kuis Pintar Warna</h2>
+<p class="deskripsi">Jawab pertanyaan berikut dengan benar, ya!</p>
+<div class="panel">
+<p id="nomorKuis">Pertanyaan 1 dari 10</p>
+<div class="soal" id="pertanyaanKuis"></div>
+<div class="pilihan" id="pilihanKuis"></div>
+<p id="hasilKuis" aria-live="polite"></p>
+<p id="skorKuis">Skor: 0</p>
+<button class="tombol tombol-pink" onclick="mulaiKuis()">Ulangi Kuis</button>
+</div>
+</section>
+<section>
+<div class="sambutan">
+<h2>🎉 Hebat Sekali!</h2>
+<p>Teruslah belajar dan temukan warna-warna indah di sekitarmu.</p>
+<button class="tombol" onclick="window.scrollTo({top:0,behavior:'smooth'})">Kembali ke Atas</button>
+</div>
+</section>
+</main>
+<footer>
+<h3>🌈 Petualangan Mengenal Warna</h3>
+<p>Media Pembelajaran Berbasis Online</p><p>Universitas Terbuka</p>
+<p>Disusun oleh: Cahyo Adi Hartopo</p>
+<p>Program Studi Sastra Inggris Bidang Minat Penerjemahan</p>
+<small>© 2026 Media Pembelajaran Mengenal Warna</small>
+</footer>
+<script>
+const warna=[
+{nama:"Merah",kode:"#E53935",contoh:"Apel merah"},
+{nama:"Jingga",kode:"#F57C00",contoh:"Buah jeruk"},
+{nama:"Kuning",kode:"#FDD835",contoh:"Buah pisang"},
+{nama:"Hijau",kode:"#43A047",contoh:"Daun"},
+{nama:"Biru",kode:"#1E88E5",contoh:"Langit cerah"},
+{nama:"Nila",kode:"#3949AB",contoh:"Warna nila"},
+{nama:"Ungu",kode:"#8E44AD",contoh:"Buah anggur ungu"},
+{nama:"Merah Muda",kode:"#F48FB1",contoh:"Bunga merah muda"},
+{nama:"Merah Tua",kode:"#8E2430",contoh:"Kain merah tua"},
+{nama:"Jingga Muda",kode:"#FFB366",contoh:"Warna jingga muda"},
+{nama:"Kuning Muda",kode:"#FFF3A3",contoh:"Warna kuning muda"},
+{nama:"Hijau Muda",kode:"#A5D66D",contoh:"Daun muda"},
+{nama:"Hijau Tua",kode:"#1B5E20",contoh:"Daun hijau tua"},
+{nama:"Biru Muda",kode:"#81D4FA",contoh:"Langit biru muda"},
+{nama:"Biru Tua",kode:"#123B73",contoh:"Warna biru tua"},
+{nama:"Cokelat",kode:"#795548",contoh:"Kulit kayu"}
+];
 
-  <h1>🎨 Ayo Mengenal Warna!</h1>
-  <p>Belajar warna menjadi menyenangkan!</p>
+const daftar=document.getElementById("daftarWarna");
+warna.forEach(item=>{
+ const kartu=document.createElement("div");kartu.className="kartu";
+ const kotak=document.createElement("div");kotak.className="contoh-warna";kotak.style.backgroundColor=item.kode;
+ const judul=document.createElement("h3");judul.textContent=item.nama;
+ const contoh=document.createElement("p");contoh.textContent=item.contoh;
+ const tombol=document.createElement("button");tombol.textContent="🔊 Dengarkan";tombol.addEventListener("click",()=>ucapkan(item.nama));
+ kartu.append(kotak,judul,contoh,tombol);daftar.appendChild(kartu);
+});
 
-  <div id="daftar-warna"></div>
+function ucapkan(nama){
+ if(!("speechSynthesis" in window)){alert("Browser belum mendukung fitur suara.");return;}
+ speechSynthesis.cancel();
+ const suara=new SpeechSynthesisUtterance("Ini warna "+nama+". Ayo ucapkan "+nama);
+ suara.lang="id-ID";suara.rate=0.85;suara.pitch=1.1;speechSynthesis.speak(suara);
+}
 
-  <h2>Kuis Mengenal Warna</h2>
-  <p id="pertanyaan">Apa warna daun?</p>
-  <button onclick="jawab('Hijau')">Hijau</button>
-  <button onclick="jawab('Merah')">Merah</button>
-  <button onclick="jawab('Biru')">Biru</button>
-  <p id="hasil"></p>
+const dataPermainan=[
+{benda:"🍎",nama:"Apel",warna:"Merah"},
+{benda:"🍌",nama:"Pisang",warna:"Kuning"},
+{benda:"🍃",nama:"Daun",warna:"Hijau"},
+{benda:"🌊",nama:"Air laut",warna:"Biru"},
+{benda:"🍇",nama:"Anggur",warna:"Ungu"},
+{benda:"🥕",nama:"Wortel",warna:"Jingga"},
+{benda:"🪵",nama:"Kayu",warna:"Cokelat"},
+{benda:"🌸",nama:"Bunga",warna:"Merah Muda"}
+];
+let indeksPermainan=0;
+function soalPermainanBaru(){
+ const item=dataPermainan[indeksPermainan];
+ document.getElementById("gambarBenda").textContent=item.benda;
+ document.getElementById("soalPermainan").textContent="Apa warna "+item.nama+"?";
+ document.getElementById("umpanBalik").textContent="";
+ const pilihan=document.getElementById("pilihanPermainan");pilihan.innerHTML="";
+ const pilihanWarna=[...warna].sort(()=>Math.random()-0.5).slice(0,3);
+ if(!pilihanWarna.some(w=>w.nama===item.warna)){pilihanWarna[0]=warna.find(w=>w.nama===item.warna);}
+ pilihanWarna.sort(()=>Math.random()-0.5);
+ pilihanWarna.forEach(w=>{
+  const tombol=document.createElement("button");tombol.textContent=w.nama;
+  tombol.onclick=()=>{
+   const hasil=document.getElementById("umpanBalik");
+   if(w.nama===item.warna){hasil.textContent="Hebat! Jawaban kamu benar! 🎉";hasil.style.color="green";}
+   else{hasil.textContent="Belum tepat. Coba lagi, ya! 😊";hasil.style.color="red";}
+  };
+  pilihan.appendChild(tombol);
+ });
+ indeksPermainan=(indeksPermainan+1)%dataPermainan.length;
+}
 
-  <script>
-    const warna = [
-      {nama: "Merah", kode: "#ff0000"},
-      {nama: "Jingga", kode: "#ff8c00"},
-      {nama: "Kuning", kode: "#ffff00"},
-      {nama: "Hijau", kode: "#008000"},
-      {nama: "Biru", kode: "#0000ff"},
-      {nama: "Ungu", kode: "#800080"},
-      {nama: "Merah Muda", kode: "#ff69b4"},
-      {nama: "Cokelat", kode: "#8b4513"}
-    ];
-
-    const daftar = document.getElementById("daftar-warna");
-
-    warna.forEach(item => {
-      daftar.innerHTML += `
-        <div class="warna">
-          <div class="kotak"
-            style="background:${item.kode}">
-          </div>
-          <h3>${item.nama}</h3>
-          <button onclick="ucapkan('${item.nama}')">
-            Dengarkan
-          </button>
-        </div>
-      `;
-    });
-
-    function ucapkan(nama) {
-      const suara = new SpeechSynthesisUtterance(
-        "Ini warna " + nama
-      );
-      suara.lang = "id-ID";
-      speechSynthesis.speak(suara);
-    }
-
-    function jawab(pilihan) {
-      document.getElementById("hasil").innerText =
-        pilihan === "Hijau"
-        ? "Hebat! Jawaban kamu benar! 🎉"
-        : "Coba lagi, ya! 😊";
-    }
-  </script>
-
+const pertanyaan=[
+{tanya:"Apa warna daun yang segar?",jawaban:"Hijau",opsi:["Hijau","Merah","Ungu"]},
+{tanya:"Apa warna buah pisang matang?",jawaban:"Kuning",opsi:["Biru","Kuning","Cokelat"]},
+{tanya:"Apa warna buah apel merah?",jawaban:"Merah",opsi:["Merah","Hijau Muda","Ungu"]},
+{tanya:"Apa warna langit cerah?",jawaban:"Biru",opsi:["Jingga","Biru","Merah"]},
+{tanya:"Apa warna buah anggur ungu?",jawaban:"Ungu",opsi:["Kuning","Hijau","Ungu"]},
+{tanya:"Apa warna wortel?",jawaban:"Jingga",opsi:["Jingga","Biru","Merah Muda"]},
+{tanya:"Apa warna batang kayu?",jawaban:"Cokelat",opsi:["Merah","Cokelat","Kuning"]},
+{tanya:"Apa warna bunga merah muda?",jawaban:"Merah Muda",opsi:["Biru","Merah Muda","Hijau"]},
+{tanya:"Apa warna daun yang sangat muda?",jawaban:"Hijau Muda",opsi:["Hijau Muda","Ungu","Merah"]},
+{tanya:"Apa warna laut dalam pada ilustrasi?",jawaban:"Biru Tua",opsi:["Kuning","Biru Tua","Merah Muda"]}
+];
+let nomor=0,skor=0,sudahMenjawab=false;
+function mulaiKuis(){nomor=0;skor=0;sudahMenjawab=false;document.getElementById("skorKuis").textContent="Skor: 0";tampilkanPertanyaan();}
+function tampilkanPertanyaan(){
+ const hasil=document.getElementById("hasilKuis"),pilihan=document.getElementById("pilihanKuis");
+ hasil.textContent="";pilihan.innerHTML="";
+ if(nomor>=pertanyaan.length){
+  document.getElementById("nomorKuis").textContent="Kuis selesai!";
+  document.getElementById("pertanyaanKuis").textContent="Hebat! Kamu telah menyelesaikan kuis! 🎉";
+  hasil.textContent="Nilai akhir kamu: "+skor+" dari 100";return;
+ }
+ const item=pertanyaan[nomor];
+ document.getElementById("nomorKuis").textContent="Pertanyaan "+(nomor+1)+" dari "+pertanyaan.length;
+ document.getElementById("pertanyaanKuis").textContent=item.tanya;
+ item.opsi.forEach(jawaban=>{
+  const tombol=document.createElement("button");tombol.textContent=jawaban;
+  tombol.onclick=()=>{
+   if(sudahMenjawab)return;sudahMenjawab=true;
+   if(jawaban===item.jawaban){skor+=10;hasil.textContent="Benar sekali! 🌟";hasil.style.color="green";}
+   else{hasil.textContent="Belum tepat. Jawaban yang benar adalah "+item.jawaban+".";hasil.style.color="red";}
+   document.getElementById("skorKuis").textContent="Skor: "+skor;
+   const lanjut=document.createElement("button");lanjut.className="tombol tombol-ungu";
+   lanjut.textContent=nomor===pertanyaan.length-1?"Lihat Hasil":"Pertanyaan Berikutnya";
+   lanjut.onclick=()=>{nomor++;sudahMenjawab=false;tampilkanPertanyaan();};
+   pilihan.appendChild(lanjut);
+  };
+  pilihan.appendChild(tombol);
+ });
+}
+soalPermainanBaru();mulaiKuis();
+</script>
 </body>
 </html>
