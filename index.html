@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Mengenal Warna</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fff8e8;
+      padding: 20px;
+    }
+
+    h1 { color: #ff7b35; }
+
+    .warna {
+      display: inline-block;
+      width: 130px;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 3px 8px #ccc;
+    }
+
+    .kotak {
+      height: 90px;
+      border-radius: 12px;
+    }
+
+    button {
+      background: #ff9b42;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      cursor: pointer;
+      margin: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎨 Ayo Mengenal Warna!</h1>
+  <p>Belajar warna menjadi menyenangkan!</p>
+
+  <div id="daftar-warna"></div>
+
+  <h2>Kuis Mengenal Warna</h2>
+  <p id="pertanyaan">Apa warna daun?</p>
+  <button onclick="jawab('Hijau')">Hijau</button>
+  <button onclick="jawab('Merah')">Merah</button>
+  <button onclick="jawab('Biru')">Biru</button>
+  <p id="hasil"></p>
+
+  <script>
+    const warna = [
+      {nama: "Merah", kode: "#ff0000"},
+      {nama: "Jingga", kode: "#ff8c00"},
+      {nama: "Kuning", kode: "#ffff00"},
+      {nama: "Hijau", kode: "#008000"},
+      {nama: "Biru", kode: "#0000ff"},
+      {nama: "Ungu", kode: "#800080"},
+      {nama: "Merah Muda", kode: "#ff69b4"},
+      {nama: "Cokelat", kode: "#8b4513"}
+    ];
+
+    const daftar = document.getElementById("daftar-warna");
+
+    warna.forEach(item => {
+      daftar.innerHTML += `
+        <div class="warna">
+          <div class="kotak"
+            style="background:${item.kode}">
+          </div>
+          <h3>${item.nama}</h3>
+          <button onclick="ucapkan('${item.nama}')">
+            Dengarkan
+          </button>
+        </div>
+      `;
+    });
+
+    function ucapkan(nama) {
+      const suara = new SpeechSynthesisUtterance(
+        "Ini warna " + nama
+      );
+      suara.lang = "id-ID";
+      speechSynthesis.speak(suara);
+    }
+
+    function jawab(pilihan) {
+      document.getElementById("hasil").innerText =
+        pilihan === "Hijau"
+        ? "Hebat! Jawaban kamu benar! 🎉"
+        : "Coba lagi, ya! 😊";
+    }
+  </script>
+
+</body>
+</html>
